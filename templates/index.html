@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload</button>
+    </form>
+ 
+    <h1>Matched Image Information</h1>
+    {% if matched_info %}
+        <p>{{ matched_info }}</p>
+        <p>Face Id: {{ matched_info[0]["Face"]["FaceId"] }}</p>
+        <p>First name: {{ first_name }}</p>
+        <p>Last name: {{ last_name }}</p>
+        <br>
+        <br>
+        <p>{{ addSuccess }}</p>
+        <!-- You can display other information as needed -->
+    {% else %}
+        <p>No matching image found.</p>
+    {% endif %}
+</body>
+</html>
